@@ -1,0 +1,16 @@
+{
+  "name": "@angular-front-end-libraries/video-library",
+  "version": "0.0.1",
+  "main": "public_api",
+  "dependencies": {
+    "ngx-infinite-scroll": "^14.0.0",
+    "rxjs-observable-store": "^3.1.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "14.1.x",
+    "@angular/core": "14.1.x",
+    "@angular/forms": "14.1.x",
+    "@angular/router": "14.1.x",
+    "rxjs": "7.5.0"
+  }
+}

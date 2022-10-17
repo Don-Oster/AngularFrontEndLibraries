@@ -1,0 +1,20 @@
+:host {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 65px;
+
+    section > div {
+        height: 65px;
+    }
+
+    .right-icons {
+        position: absolute;
+        right: 32px;
+        top: 0;
+    }
+
+    .top-icons {
+        position: absolute;
+        top: 16px;
+    }
+}

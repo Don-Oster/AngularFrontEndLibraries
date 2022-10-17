@@ -1,0 +1,11 @@
+<section *ngIf="items.length > 1" class="horizontal">
+  <label class="fs-content-r">Sort by:</label>
+  <select direction="bottom"
+          [items]="items"
+          [active]="selectedItem"
+          [scrollable]="false"
+          [idField]="'id'"
+          [textField]="'text'"
+          (selected)="onSortingSelected($event)">
+  </select>
+</section>

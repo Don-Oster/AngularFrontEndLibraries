@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+.video-player-fake a {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: 100%
+}
+
+.video-card {
+  overflow: hidden;
+  margin: 0 16px;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  flex-shrink: 1
+}
+
+.video-card .video-player-fake {
+  position: relative
+}
+
+.video-card .video-player-fake a {
+  display: inline-block;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: transparent
+}
+
+.video-card .video-player-fake button {
+  top: calc(50% - 21px);
+  position: absolute;
+  -webkit-transition: background-color .25s linear,color .25s linear,opacity .25s linear;
+  transition: background-color .25s linear,color .25s linear,opacity .25s linear;
+  width: 42px;
+  height: 42px;
+  background-color: #fff;
+  border-radius: 21px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100
+}
+
+.video-card .video-player-fake .carousel-slider-nav-left button {
+  left: 0
+}
+
+.video-card .video-player-fake .carousel-slider-nav-right button {
+  right: 0
+}
+
+.video-card .title {
+  text-decoration: none;
+  color: #32363b;
+  cursor: pointer;
+  line-height: 1.3em;
+  max-height: 5.2em;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+  margin-right: -1em;
+  padding-right: 1em;
+  text-align: justify;
+  word-break: break-word
+}
+
+.video-card .title:before {
+  content: "u2026";
+  position: absolute;
+  right: 0;
+  bottom: 0
+}
+
+.video-card .title:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: .2em;
+  background: #fff
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .video-card .title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    text-align: initial
+  }
+
+  .video-card .title:after, .video-card .title:before {
+    content: none
+  }
+}
+
+.video-card .title:hover {
+  color: #009697;
+  -webkit-transition: color .3s;
+  transition: color .3s
+}
+
+.video-card .date {
+  color: #939598
+}

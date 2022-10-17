@@ -1,0 +1,15 @@
+<div class="video-group-section" *ngIf="videos.length > 0">
+    <div *ngIf="title" class="video-group-section-title px-lg">
+        <h3 class="fs-section-l pa-lg my-md">{{title}}</h3>
+        <span class="fs-content-r">{{showingText}}</span>
+    </div>
+    <vl-video-grid [size]="'small-with-default-on-xtra-large'"
+                    [singleRow]="showOnlyFirstRow"
+                    [videos]="videos">
+    </vl-video-grid>
+    <button *ngIf="!isAllItemsShownInSingleRow()"
+                class="px-lg" size="md"
+                (click)="showOnlyFirstRow = !showOnlyFirstRow">
+        {{showOnlyFirstRow ? 'SHOW MORE' : 'SHOW LESS'}}
+    </button>
+</div>

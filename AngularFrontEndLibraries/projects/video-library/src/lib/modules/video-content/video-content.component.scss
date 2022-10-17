@@ -1,0 +1,15 @@
+:host {
+    width: 100%;
+    display: block;
+}
+
+.video-content {
+    display: block;
+    overflow-x: hidden;
+
+    .border-top-gray-lighter {
+        display: flex;
+        border-top: 1px solid #c1c1c1;
+    }
+}
+

@@ -1,0 +1,18 @@
+<div class="video-card">
+    <div class="video-player-fake">
+        <a (click)="onVideoButtonClicked(video)" [style.background-image]="getVideoBackground()"></a>
+        <div *ngIf="showLeftButton" class="carousel-slider-nav carousel-slider-nav-left">
+            <button (click)="onLeftButtonClicked()" class="chevron-left" color="gray" size="lg"></button>
+        </div>
+        <div *ngIf="showRightButton" class="carousel-slider-nav carousel-slider-nav-right">
+            <button (click)="onRightButtonClicked()" class="chevron-right" color="gray" size="lg"></button>
+        </div>
+    </div>
+    
+    <section class="vertical md">
+      <div class="py-md">
+        <a [href]="buildUrlToDocument()" class="title fs-high-content-s">{{video.title}}</a>
+        <div class="date fs-small-r py-sm">{{video.date | date:'mediumDate'}}</div>
+      </div>
+    </section>
+</div>

@@ -1,0 +1,17 @@
+<div class="video-infinite-scroll-section" *ngIf="videos.length > 0">
+    <div *ngIf="title" class="px-lg">
+        <h3 class="fs-section-l pa-lg my-md">{{title}}</h3>
+    </div>
+    <section infinite-scroll
+                 [scrollWindow]="true"
+                 [infiniteScrollDistance]="1"
+                 [infiniteScrollThrottle]="0"
+                 (scrolled)="onContentScrolled()">
+        <vl-video-grid *ngIf="(getVideoGridSize() | async) as videoGridSize"
+                        [size]="videoGridSize"
+                        [videos]="videos">
+        </vl-video-grid>
+        <section *ngIf="(isLoading$ | async)" class="mx-lg">
+        </section>
+    </section>
+</div>

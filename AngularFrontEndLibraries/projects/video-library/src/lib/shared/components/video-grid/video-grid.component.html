@@ -1,0 +1,18 @@
+<div class="video-grid"
+    *ngIf="videos.length > 0"
+     [class.video-grid-single-row]="singleRow"
+     [class.video-grid-slider]="useSlider" 
+     [@carouselAnimation]="{ value: carousel.startValue, params: { rowSize: 100 / rowSize + '%'} }">
+    <vl-video-card *ngFor="let video of videos | slice: carousel.startValue : carousel.endValue; let i = index"
+                    [style.flex-basis]="sanitizer.bypassSecurityTrustStyle(100 / rowSize + '%')"
+                    [showLeftButton]="useSlider && carousel.startValue > 0 && i === 0"
+                    [showRightButton]="useSlider && carousel.endValue < videos.length && i === rowSize - 1"
+                    [video]="video"
+                    (leftButtonClicked)="showPrevVideo()"
+                    (rightButtonClicked)="showNextVideo()">
+    </vl-video-card>
+</div>
+<ng-container *ngIf="useSlider">
+    <div *ngIf="carousel.startValue > 0" class="carousel-slider-nav carousel-slider-nav-left"></div>
+    <div *ngIf="carousel.endValue < videos.length" class="carousel-slider-nav carousel-slider-nav-right"></div>
+</ng-container>

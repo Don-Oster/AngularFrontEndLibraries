@@ -1,0 +1,46 @@
+{
+  "name": "angular-front-end-libraries",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "e2e": "ng e2e",
+    "demo:serve": "ng serve demo",
+    "demo:serve:prod": "ng serve demo --prod",
+    "demo:build:prod": "ng build demo --prod",
+    "video-library:build:prod": "ng build video-library --prod",
+    "video-library:publish": "npm publish dist/video-library",
+    "video-library:package": "cd dist/video-library && npm pack && cd ../..",
+    "video-library:test": "ng test video-library",
+    "all:build": "npm run video-library:build",
+    "all:package": "npm run video-library:package",
+    "all:publish": "npm run video-library:publish"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^14.1.0",
+    "@angular/common": "^14.1.0",
+    "@angular/compiler": "^14.1.0",
+    "@angular/core": "^14.1.0",
+    "@angular/forms": "^14.1.0",
+    "@angular/platform-browser": "^14.1.0",
+    "@angular/platform-browser-dynamic": "^14.1.0",
+    "@angular/router": "^14.1.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4",
+    "jest-editor-support": "*"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.1.0",
+    "@angular/cli": "~14.1.0",
+    "@angular/compiler-cli": "^14.1.0",
+    "@types/jasmine": "~4.0.0",
+    "jasmine-core": "~4.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "~4.7.2"
+  }
+}

@@ -1,0 +1,6 @@
+<div class="video-highlighted-section" *ngIf="videos.length > 0">
+    <div *ngIf="title" class="px-lg">
+        <h3 class="fs-section-l pa-lg my-md">{{title}}</h3>
+    </div>
+    <vl-video-grid [useSlider]="useSlider" [videos]="videos"></vl-video-grid>
+</div>

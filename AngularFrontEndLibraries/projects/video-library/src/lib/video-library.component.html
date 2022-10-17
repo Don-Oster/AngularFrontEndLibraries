@@ -1,0 +1,10 @@
+<ng-container *ngIf="(initialized$ | async)">
+  <vl-settings-header [title]="title">
+  </vl-settings-header>
+  <vl-video-content [sortOrder]="sortOrder"
+                    [savedSearchDefinition]="savedSearchDefinition"
+                    [groupByField]="groupByField"
+                    [highlightedVideoSection]="highlightedVideoSection">
+  </vl-video-content>
+</ng-container>
+

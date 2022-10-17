@@ -1,0 +1,10 @@
+<section class="vertical">
+  <search-box [allowEmptySearch]="true"
+              [rememberLastSearch]="false"
+              [value]="searchPhrase"
+              (search)="onSearch($event)"
+              (cleared)="onSearchCleared()"
+              placeholder="Keyword search..."
+              size="md">
+  </search-box>
+</section>

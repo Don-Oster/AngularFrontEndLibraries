@@ -1,0 +1,54 @@
+<div class="video-content pa-lg">
+    <ng-container [ngSwitch]="highlightedVideoSection">
+        <ng-container *ngSwitchCase="'latest'">
+            <ng-container *ngIf="(recent$ | async) as recent">
+                <vl-video-highlighted-section *ngIf="!recent.isLoading" [title]="'Recently Added'" [videos]="recent.videos" [useSlider]="false"></vl-video-highlighted-section>
+            </ng-container>
+            <ng-container [ngTemplateOutlet]="videoSection"
+                          [ngTemplateOutletContext]="{ title: 'All Other Videos' }">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'featured'">
+            <ng-container *ngIf="(featured$ | async) as featured">
+                <vl-video-highlighted-section *ngIf="!featured.isLoading" [title]="'Featured'" [videos]="featured.videos" [useSlider]="true"></vl-video-highlighted-section>
+            </ng-container>
+            <ng-container [ngTemplateOutlet]="videoSection"
+                          [ngTemplateOutletContext]="{ title: 'All Videos' }">
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            <ng-container *ngIf="(paged$ | async) as paged">
+                <vl-video-infinite-scroll-section *ngIf="!paged.isLoading" [videos]="paged.videos"></vl-video-infinite-scroll-section>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+    <section *ngIf="(isLoading$ | async)" class="mx-lg">
+    </section>
+</div>
+
+<ng-template #videoSection let-title='title'>
+    <ng-container *ngIf="(sortOrder$ | async) as sortOrder" [ngSwitch]="sortOrder">
+        <ng-container *ngSwitchCase="'Group'">
+            <ng-container *ngIf="(grouped$ | async) as grouped">
+                <ng-container [ngTemplateOutlet]="groupSection"
+                              [ngTemplateOutletContext]="{ grouped: grouped }">
+                </ng-container>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'Date'">
+            <ng-container *ngIf="(paged$ | async) as paged">
+                <span *ngIf="paged.videos.length > 0 && (hasVideosInHighlightedSection$ | async)" class="border-top-gray-lighter mx-lg mt-lg"></span>
+                <vl-video-infinite-scroll-section *ngIf="!paged.isLoading" [title]="title" [videos]="paged.videos"></vl-video-infinite-scroll-section>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</ng-template>
+
+<ng-template #groupSection let-grouped='grouped'>
+    <ng-container *ngIf="!grouped.isLoading && grouped.videos.length > 0">
+        <ng-container *ngFor="let group of grouped.videos; let i = index">
+            <span *ngIf="group.videos.length > 0 && (i === 0 && (hasVideosInHighlightedSection$ | async) || i > 0)" class="border-top-gray-lighter mx-lg mt-lg"></span>
+            <vl-video-group-section *ngIf="group.videos.length > 0" [title]="group.name" [videos]="group.videos"></vl-video-group-section>
+        </ng-container>
+    </ng-container>
+</ng-template>

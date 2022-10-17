@@ -1,0 +1,15 @@
+:host {
+    width: 100%;
+    display: block;
+
+    .video-infinite-scroll-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 100%;
+
+        section {
+            margin-bottom: 0px;
+        }
+    }
+}
